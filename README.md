@@ -1,13 +1,27 @@
-# Sample Hardhat Project
+# Sample Hardhat Project for DeployAlchemist
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+First, build the project
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.ts
+``` shell
+npx hardhat compile
 ```
+
+After getting all the needed deploy artifacts, head to deploy area and create a `tfvars` file with your original deployer's mnemonic key
+
+``` shell
+cd deployment/
+cat <<EOF > test.tfvars
+signer_mnemonic = "<your mnemonic>"
+EOF
+```
+
+After you've done that, you are free to run terraform
+
+``` shell
+terraform init
+terraform validate
+terraform plan -var-file test.tfvars
+terraform apply -var-file test.tfvars
+```
+
+This weill deploy the compiled contract with the architecture, defined in the [DeployAlchemist](https://github.com/ipsavitsky/DeployAlchemist) repo
