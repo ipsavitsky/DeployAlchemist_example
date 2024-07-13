@@ -1,5 +1,5 @@
 module "contract" {
-  source = "git::https://github.com/ipsavitsky/DeployAlchemist"
+  source = "git::https://github.com/ipsavitsky/DeployAlchemist.git"
 
   signer_mnemonic   = var.signer_mnemonic
   contract_abi_path = "../artifacts/contracts/Lock.sol:Lock"
