@@ -18,16 +18,16 @@ module "contract" {
   source = "git::https://github.com/ipsavitsky/DeployAlchemist.git"
 
   signer_mnemonic   = var.signer_mnemonic
-  contract_abi_path = "../artifacts/contracts/Lock.sol/Lock.json"
+  contract_abi_path = "../artifacts/contracts/Lock.sol/Hello.json"
   contract_inputs = [
     {
-      "type_" = "uint256"
+      "type_" = "uint"
       "value" = 1752357219
     }
   ]
-  source_chain      = "SEPOLIA"
+  source_chain      = "ALFAJORES"
   destination_chain = each.value["destination_chain"]
-  alchemist_address = "0x8e928dEe39f90580433c59C436f16a00B8df3a4D"
+  alchemist_address = "0x62710A99E1558332080681849184b21Fd7f16a18"
   golem_address     = each.value["golem_address"]
   blockscout_link   = each.value["blockscout_link"]
 }
