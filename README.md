@@ -12,6 +12,7 @@ After getting all the needed deploy artifacts, head to deploy area and create a 
 cd deployment/
 cat <<EOF > test.tfvars
 signer_mnemonic = "<your mnemonic>"
+rpc_endpoint = "<your endpoint rpc>"
 EOF
 ```
 
@@ -25,3 +26,11 @@ terraform apply -var-file test.tfvars
 ```
 
 This weill deploy the compiled contract with the architecture, defined in the [DeployAlchemist](https://github.com/ipsavitsky/DeployAlchemist) repo
+
+## Related projects
+
+DeployAlchemist Terraform module: https://github.com/ipsavitsky/DeployAlchemist
+
+
+DeployAlchemist crosschain contracts: https://github.com/vovunku/DeployAlchemistContracts
+
